@@ -6,6 +6,8 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
   order_id SERIAL PRIMARY KEY,
-  user_id INT REFERENCES users(user_id),
-  amount DECIMAL(10,2)
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  product_name TEXT NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
